@@ -68,4 +68,7 @@ Brute force stops being optimal after 20 paintings
 * The program should accept a single command-line argument representing the name of the input file.
   - If the project is not executed with the correct number of arguments, output an error message that includes the proper formatting for running the program.
 * The program should produce 3 output files named based on directions in the Output section above.
-* The implementation should be object oriented.
+* The implementation should be object oriented.  
+
+For example, if your input was "paintings.txt" your command-line argument would look like
+`22s-pa01-kate /<PATH TO INPUT FILE>/paintings.txt` after running the cmake executable to configure the project.
