@@ -58,7 +58,7 @@ Each output file should be formatted as follows:
     * Fourth integer is the height of that picture
 
 ## Build Status
-![main branch](https://github.com/katebouis/22s-pa01-kate/actions/workflows/build.yml/badge.svg)
+![main branch](https://github.com/smu-cs-3353/22s-pa01-kate/actions/workflows/build.yml/badge.svg)
 
 ## Tests
 Tested with datasets in "data" folder named '4-paintings', '10-paintings', '20-paintings', '50-paintings', '100-paintings', and '2000-paintings'
