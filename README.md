@@ -71,4 +71,4 @@ Brute force stops being optimal after 20 paintings
 * The implementation should be object oriented.  
 
 For example, if your input was "paintings.txt" your command-line argument would look like
-`/<PATH TO INPUT FILE>/22s-pa01-kate paintings.txt` after running the cmake executable to configure the project.
+`22s-pa01-kate /<PATH TO INPUT FILE>/paintings.txt` after running the cmake executable to configure the project.
