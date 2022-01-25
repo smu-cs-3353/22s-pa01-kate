@@ -5,10 +5,10 @@
 
 int main(int argc, char** argv) {
     if(argc != 1) {
-        std::cout << "idk what's up here" << std::endl;
+        std::cout << "Incorrect number of arguments. Run program again with only one command line argument." << std::endl;
     }
     else {
-        std::cout << "will this build" << std::endl;
+
     }
     return 0;
 }
