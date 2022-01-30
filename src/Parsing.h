@@ -29,5 +29,4 @@ public:
     void output (char*, vector<Paintings>);
 };
 
-
 #endif //INC_22S_PA01_KATE_PARSING_H
