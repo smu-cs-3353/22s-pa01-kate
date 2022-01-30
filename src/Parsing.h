@@ -1,4 +1,3 @@
-#include <__bit_reference>
 //
 // Created by Kate Bouis on 1/25/22.
 //
@@ -28,6 +27,5 @@ public:
     //output
     void output (char*, vector<Paintings>);
 };
-
 
 #endif //INC_22S_PA01_KATE_PARSING_H
