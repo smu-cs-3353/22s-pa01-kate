@@ -4,7 +4,7 @@
 
 #ifndef INC_22S_PA01_KATE_PAINTINGS_H
 #define INC_22S_PA01_KATE_PAINTINGS_H
-
+using namespace std;
 
 class Paintings {
 private:
@@ -12,13 +12,11 @@ private:
     int height;
     int price;
     int id;
-    double value;
 public:
     void setWidth(int);
     void setHeight(int);
     void setPrice(int);
     void setID(int);
-    void setValue();
 
     int getWidth();
     int getHeight();
