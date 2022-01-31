@@ -33,3 +33,6 @@ vector<Paintings> Parsing::parse(char* argv) {
 void Parsing::output(char *, vector<Paintings>) {
 
 }
+
+int Parsing::getWallWidth() {return wallWidth;}
+int Parsing::getWallHeight() {return wallHeight;}

@@ -26,6 +26,8 @@ public:
     vector<Paintings> parse (char*);
     //output
     void output (char*, vector<Paintings>);
+    int getWallWidth();
+    int getWallHeight();
 };
 
 #endif //INC_22S_PA01_KATE_PARSING_H

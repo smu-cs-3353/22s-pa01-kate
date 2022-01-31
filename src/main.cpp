@@ -1,13 +1,19 @@
 //
 // Created by Kate Bouis on 1/24/22.
 //
-#include "Parsing.h"
+#include "BruteForce.h"
 
 int main(int argc, char** argv) {
     if(argc == 2) {
         Parsing p;
-        vector<Paintings> test = p.parse(argv[1]);
+        vector<Paintings> artworks = p.parse(argv[1]);
+       // for (int i = 0; i < artworks.size(); i++) cout << artworks.at(i).getID() << endl;
 
+        BruteForce brute;
+        brute.heapPermutation(artworks, artworks.size(), artworks.size());
+        //brute.printPerms();
+        vector<Paintings> bruteSol = brute.findBest(p.getWallWidth(), p.getWallHeight());
+        for (int i = 0; i < bruteSol.size(); i++) cout << bruteSol.at(i).getID() << endl;
     }
     else {
         cout << "Incorrect number of arguments. Run program again with only one command line argument." << endl;
