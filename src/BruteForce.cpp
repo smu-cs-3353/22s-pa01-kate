@@ -31,5 +31,24 @@ void BruteForce::printPerms() {
 }
 
 vector <Paintings> BruteForce::findBest(int width, int height) {
-
+    vector<Paintings> bestCombo;
+    for (int i = 0; i < myPerms.size(); i++) {
+        vector<Paintings> currCombo;
+        int width_remaining = width;
+        int curr_price = 0;
+        for (int j = 0; j < myPerms[i].size(); j++) {
+            if (myPerms[i][j].getWidth() <= width_remaining) {
+                curr_price += myPerms[i][j].getPrice();
+                currCombo.push_back(myPerms[i][j]);
+            } else {
+                break;
+            }
+            width_remaining -= myPerms[i][j].getWidth();
+        }
+        if (curr_price > best) {
+            best = curr_price;
+            bestCombo = currCombo;
+        }
+    }
+    return bestCombo;
 }
