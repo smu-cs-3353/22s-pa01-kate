@@ -23,11 +23,10 @@ private:
     int num;
 public:
     //parse
-    vector<Paintings> parse (char*);
+    std::vector<Paintings> parse (char*);
     //output
-    void output (char*, vector<Paintings>);
+    void output (char*, std::string, std::vector<Paintings>);
     int getWallWidth();
-    int getWallHeight();
 };
 
 #endif //INC_22S_PA01_KATE_PARSING_H

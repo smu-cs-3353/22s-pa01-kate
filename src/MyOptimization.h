@@ -11,10 +11,10 @@
 class MyOptimization {
 private:
     double price = 0.0;
-    vector<Paintings> valueSorted;
+    std::vector<Paintings> valueSorted;
 public:
-    void sort(vector<Paintings>&);
-    vector<Paintings> findBest(int);
+    void sort(std::vector<Paintings>&);
+    std::vector<Paintings> findBest(int);
 };
 
 
