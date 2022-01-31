@@ -13,7 +13,7 @@ private:
     vector<vector<Paintings>> myPerms;
 public:
     void heapPermutation(vector<Paintings>&, int, int);
-    vector<Paintings> findBest (int, int);
+    vector<Paintings> findBest (int);
     void printPerms();
 };
 
