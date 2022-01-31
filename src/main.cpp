@@ -2,6 +2,7 @@
 // Created by Kate Bouis on 1/24/22.
 //
 #include "BruteForce.h"
+#include "PriciestFirst.h"
 
 int main(int argc, char** argv) {
     if(argc == 2) {
@@ -12,8 +13,14 @@ int main(int argc, char** argv) {
         BruteForce brute;
         brute.heapPermutation(artworks, artworks.size(), artworks.size());
         //brute.printPerms();
-        vector<Paintings> bruteSol = brute.findBest(p.getWallWidth(), p.getWallHeight());
-        for (int i = 0; i < bruteSol.size(); i++) cout << bruteSol.at(i).getID() << endl;
+        vector<Paintings> bruteSol = brute.findBest(p.getWallWidth());
+        //for (int i = 0; i < bruteSol.size(); i++) cout << bruteSol.at(i).getID() << endl;
+
+        PriciestFirst pricey;
+        pricey.sort(artworks);
+        vector<Paintings> priceSol = pricey.findBest(p.getWallWidth());
+       // for (int i = 0; i < priceSol.size(); i++) cout << priceSol.at(i).getID() << endl;
+
     }
     else {
         cout << "Incorrect number of arguments. Run program again with only one command line argument." << endl;
