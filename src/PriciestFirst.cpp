@@ -27,6 +27,15 @@ void PriciestFirst::sort(vector<Paintings>& unsorted) {
   //  for (int k = 0; k < priciest.size(); k++) cout << priciest[k].getPrice() << endl;
 }
 
-void PriciestFirst::findBest(int width) {
-
+vector<Paintings> PriciestFirst::findBest(int width) {
+    vector<Paintings> fitOnWall;
+    int width_remaining = width;
+    for (int i = 0; i < priciest.size(); i++) {
+        if (priciest[i].getWidth() <= width_remaining) {
+            fitOnWall.push_back(priciest[i]);
+            width_remaining -= priciest[i].getWidth();
+            price += priciest[i].getPrice();
+        }
+    }
+    return fitOnWall;
 }
