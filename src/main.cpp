@@ -18,6 +18,8 @@ int main(int argc, char** argv) {
 
         PriciestFirst pricey;
         pricey.sort(artworks);
+        vector<Paintings> priceSol = pricey.findBest(p.getWallWidth());
+        for (int i = 0; i < priceSol.size(); i++) cout << priceSol.at(i).getID() << endl;
     }
     else {
         cout << "Incorrect number of arguments. Run program again with only one command line argument." << endl;

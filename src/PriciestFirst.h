@@ -9,11 +9,11 @@
 
 class PriciestFirst {
 private:
-    double best = 0.0;
+    double price = 0.0;
     vector<Paintings> priciest;
 public:
     void sort(vector<Paintings>&);
-    void findBest(int);
+    vector<Paintings> findBest(int);
 };
 
 
