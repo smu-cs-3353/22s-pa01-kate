@@ -24,18 +24,18 @@ void MyOptimization::sort(vector<Paintings>& unsorted) {
         swap(valueSorted[min_idx], valueSorted[i]);
     }
     // now it is sorted
-   // for (int k = 0; k < valueSorted.size(); k++) cout << valueSorted[k].getPrice() << "  " << valueSorted[k].getValue()<< endl;
+  // for (int k = 0; k < valueSorted.size(); k++) cout << valueSorted[k].getPrice() << "  " << valueSorted[k].getValue()<< endl;
 }
 
 vector<Paintings> MyOptimization::findBest(int width) {
-//    vector<Paintings> fitOnWall;
-//    int width_remaining = width;
-//    for (int i = 0; i < priciest.size(); i++) {
-//        if (priciest[i].getWidth() <= width_remaining) {
-//            fitOnWall.push_back(priciest[i]);
-//            width_remaining -= priciest[i].getWidth();
-//            price += priciest[i].getPrice();
-//        }
-//    }
-//    return fitOnWall;
+    vector<Paintings> fitOnWall;
+    int width_remaining = width;
+    for (int i = 0; i < valueSorted.size(); i++) {
+        if (valueSorted[i].getWidth() <= width_remaining) {
+            fitOnWall.push_back(valueSorted[i]);
+            width_remaining -= valueSorted[i].getWidth();
+            price += valueSorted[i].getPrice();
+        }
+    }
+    return fitOnWall;
 }

@@ -24,6 +24,8 @@ vector<Paintings> Parsing::parse(char* argv) {
         p.setID(id);
         p.setWidth(width);
         p.setPrice(price);
+        p.setWallWidth(wallWidth);
+        p.setWallHeight(wallHeight);
         totalList.push_back(p);
     }
 
