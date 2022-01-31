@@ -30,7 +30,7 @@ void BruteForce::printPerms() {
     }
 }
 
-vector <Paintings> BruteForce::findBest(int width, int height) {
+vector <Paintings> BruteForce::findBest(int width) {
     vector<Paintings> bestCombo;
     for (int i = 0; i < myPerms.size(); i++) {
         vector<Paintings> currCombo;
