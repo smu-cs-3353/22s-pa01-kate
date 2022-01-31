@@ -3,6 +3,7 @@
 //
 #include "BruteForce.h"
 #include "PriciestFirst.h"
+#include "MyOptimization.h"
 
 int main(int argc, char** argv) {
     if(argc == 2) {
@@ -20,6 +21,9 @@ int main(int argc, char** argv) {
         pricey.sort(artworks);
         vector<Paintings> priceSol = pricey.findBest(p.getWallWidth());
        // for (int i = 0; i < priceSol.size(); i++) cout << priceSol.at(i).getID() << endl;
+
+       MyOptimization optimized;
+       optimized.sort(artworks);
 
     }
     else {
