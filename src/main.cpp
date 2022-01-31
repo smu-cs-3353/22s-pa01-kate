@@ -13,8 +13,9 @@ int main(int argc, char** argv) {
         * fix during office hours:
         * memory issues when trying to copy vector to array
         */
-        //BruteForce brute;
-        //brute.permutations(artworks);
+        BruteForce brute;
+        brute.heapPermutation(artworks, artworks.size(), artworks.size());
+        brute.printPerms();
     }
     else {
         cout << "Incorrect number of arguments. Run program again with only one command line argument." << endl;

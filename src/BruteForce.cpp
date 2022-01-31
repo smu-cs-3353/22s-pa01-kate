@@ -4,16 +4,10 @@
 
 #include "BruteForce.h"
 // https://www.geeksforgeeks.org/heaps-algorithm-for-generating-permutations/
-void BruteForce::heapPermutation(Paintings a[], int size, int n){
-    if (size == 1) {
-        vector<Paintings> vec(n);
-        for (int i = 0; i < n; i++) {
-           // cout << a[i].getID() << " ";
-           // vec.at(i) = a[i];
-        }
-        cout << endl;
+void BruteForce::heapPermutation(vector<Paintings>& a, int size, int n){
 
-        myPerms.push_back(vec);
+    if (size == 1) {
+        myPerms.push_back(a);
         return;
     }
     for (int j = 0; j < size; j++) {
@@ -27,15 +21,13 @@ void BruteForce::heapPermutation(Paintings a[], int size, int n){
     }
 }
 
-void BruteForce::permutations(vector<Paintings>& total) {
-    int length = total.size();
-    Paintings p[length - 1];
-    //cout << total.at(0).getID();
-    for (int i = 0; i < length; i++) {
-        p[i] = total.at(i);
+void BruteForce::printPerms() {
+    for (int i = 0; i < 24; i++) {
+        for (int k = 0; k < 4; k++) {
+            cout << myPerms[i][k].getID() << " ";
+        }
+        cout << endl;
     }
-   // cout << p[0].getID();
-    heapPermutation(p, length, length);
 }
 
 vector <Paintings> BruteForce::findBest(int width, int height) {
