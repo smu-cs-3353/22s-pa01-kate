@@ -8,19 +8,19 @@ using namespace std;
 
 class Paintings {
 private:
-    int width;
+    double width;
     int height;
-    int price;
+    double price;
     int id;
 public:
-    void setWidth(int);
+    void setWidth(double);
     void setHeight(int);
-    void setPrice(int);
+    void setPrice(double);
     void setID(int);
 
-    int getWidth();
+    double getWidth();
     int getHeight();
-    int getPrice();
+    double getPrice();
     int getID();
     double getValue();
 };
