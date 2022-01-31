@@ -5,7 +5,7 @@
 #include "PriciestFirst.h"
 
 // https://www.geeksforgeeks.org/selection-sort/
-void PriciestFirst::sort(vector<Paintings>& unsorted) {
+void PriciestFirst::sort(std::vector<Paintings>& unsorted) {
     priciest = unsorted;
 
     //selection sort
@@ -21,14 +21,14 @@ void PriciestFirst::sort(vector<Paintings>& unsorted) {
                 min_idx = j;
 
         // Swap the found minimum element with the first element
-        swap(priciest[min_idx], priciest[i]);
+        std::swap(priciest[min_idx], priciest[i]);
     }
     // now priciest is sorted
-  //  for (int k = 0; k < priciest.size(); k++) cout << priciest[k].getPrice() << endl;
+  //  for (int k = 0; k < priciest.size(); k++) std::cout << priciest[k].getPrice() << std::endl;
 }
 
-vector<Paintings> PriciestFirst::findBest(int width) {
-    vector<Paintings> fitOnWall;
+std::vector<Paintings> PriciestFirst::findBest(int width) {
+    std::vector<Paintings> fitOnWall;
     int width_remaining = width;
     for (int i = 0; i < priciest.size(); i++) {
         if (priciest[i].getWidth() <= width_remaining) {

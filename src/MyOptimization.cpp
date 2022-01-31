@@ -5,7 +5,7 @@
 #include "MyOptimization.h"
 
 // https://www.geeksforgeeks.org/selection-sort/
-void MyOptimization::sort(vector<Paintings>& unsorted) {
+void MyOptimization::sort(std::vector<Paintings>& unsorted) {
     valueSorted = unsorted;
 
     //selection sort
@@ -21,14 +21,14 @@ void MyOptimization::sort(vector<Paintings>& unsorted) {
                 min_idx = j;
 
         // Swap the found minimum element with the first element
-        swap(valueSorted[min_idx], valueSorted[i]);
+        std::swap(valueSorted[min_idx], valueSorted[i]);
     }
     // now it is sorted
-  // for (int k = 0; k < valueSorted.size(); k++) cout << valueSorted[k].getPrice() << "  " << valueSorted[k].getValue()<< endl;
+  // for (int k = 0; k < valueSorted.size(); k++) std::cout << valueSorted[k].getPrice() << "  " << valueSorted[k].getValue()<< std::endl;
 }
 
-vector<Paintings> MyOptimization::findBest(int width) {
-    vector<Paintings> fitOnWall;
+std::vector<Paintings> MyOptimization::findBest(int width) {
+    std::vector<Paintings> fitOnWall;
     int width_remaining = width;
     for (int i = 0; i < valueSorted.size(); i++) {
         if (valueSorted[i].getWidth() <= width_remaining) {

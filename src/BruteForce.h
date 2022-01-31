@@ -10,10 +10,10 @@
 class BruteForce {
 private:
     double best = 0.0;
-    vector<vector<Paintings>> myPerms;
+    std::vector<std::vector<Paintings>> myPerms;
 public:
-    void heapPermutation(vector<Paintings>&, int, int);
-    vector<Paintings> findBest (int);
+    void heapPermutation(std::vector<Paintings>&, int, int);
+    std::vector<Paintings> findBest (int);
     void printPerms();
 };
 
