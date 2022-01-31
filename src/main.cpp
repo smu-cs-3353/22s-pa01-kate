@@ -7,9 +7,14 @@ int main(int argc, char** argv) {
     if(argc == 2) {
         Parsing p;
         vector<Paintings> artworks = p.parse(argv[1]);
+       // for (int i = 0; i < artworks.size(); i++) cout << artworks.at(i).getID() << endl;
 
-        BruteForce brute;
-        brute.permutations(artworks);
+       /**
+        * fix during office hours:
+        * memory issues when trying to copy vector to array
+        */
+        //BruteForce brute;
+        //brute.permutations(artworks);
     }
     else {
         cout << "Incorrect number of arguments. Run program again with only one command line argument." << endl;

@@ -5,13 +5,16 @@
 #ifndef INC_22S_PA01_KATE_BRUTEFORCE_H
 #define INC_22S_PA01_KATE_BRUTEFORCE_H
 #include "Parsing.h"
+#include <algorithm>
 
 class BruteForce {
 private:
     double best = 0.0;
+    vector<vector<Paintings>> myPerms;
 public:
-    vector<vector<Paintings>> permutations(vector<Paintings>);
-    vector<Paintings> findBest (vector<vector<Paintings>>, int, int);
+    void heapPermutation(Paintings[], int, int);
+    void permutations(vector<Paintings>&);
+    vector<Paintings> findBest (int, int);
 };
 
 
