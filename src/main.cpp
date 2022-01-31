@@ -24,6 +24,8 @@ int main(int argc, char** argv) {
 
        MyOptimization optimized;
        optimized.sort(artworks);
+       vector<Paintings> mySol = optimized.findBest(p.getWallWidth());
+       //for (int i = 0; i < mySol.size(); i++) cout << mySol.at(i).getID() << endl;
 
     }
     else {

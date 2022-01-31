@@ -12,11 +12,15 @@ private:
     int height;
     double price;
     int id;
+    int wallWidth;
+    int wallHeight;
 public:
     void setWidth(double);
     void setHeight(int);
     void setPrice(double);
     void setID(int);
+    void setWallWidth(int);
+    void setWallHeight(int);
 
     double getWidth();
     int getHeight();
