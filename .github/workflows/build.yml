@@ -1,58 +1,74 @@
-name: CMake
+name: 22s-pa01-kate
 
-on:
-  push
+on: [push]
 
 env:
-  # Setting the Build type to Debug
-  BUILD_TYPE: Debug
-  # setting the name of the executable used in the execute steps below.
-  # THIS MUST MATCH THE NAME OF THE EXECUTABLE IN THE CMAKELISTS.TXT file's
-  #   add_executable command.
-  TEST_EXE: 22s-pa01-kate
-  # the name of any input files (use relative path)
-  INPUT_FILE: data/100-paintings.txt
-  # the name of any output files (use relative paths)
-  OUTPUT_FILE: ./cmake-build-debug/data/100-paintings-custom.txt ./cmake-build-debug/data/100-paintings-highvalue.txt
-
+  EXE_NAME: 22s-pa01-kate
+  ### ***** Students!  Put the name of the input files and output files here.
+  ###   List them in the order that they need to appear in Argv param of main.
+  ###   Output Files will follow input files
+  ###   Note: These should be the actual names of the files.  No double quotes
+  INPUT_FILES: data/100-paintings.txt
+  OUTPUT_FILES: data/100-paintings-custom.txt data/100-paintings-highvalue.txt
 
 jobs:
   build:
-    # The CMake configure and build commands are platform agnostic and should work equally
-    # well on Windows or Mac.  You can convert this to a matrix build if you need
-    # cross-platform coverage.
-    # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+    name: Project_Building
     runs-on: ubuntu-latest
-    timeout-minutes: 3
+    timeout-minutes: 4
 
     steps:
-      - uses: actions/checkout@v2
 
-      - name: Configure CMake
-        # Configure CMake in a 'build' subdirectory.
-        # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
-        run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      - name: Checkout project repo from GitHub
+        uses: actions/checkout@v1
 
-      - name: Build
-        # Builds your project in the build folder (on your local machine, this would be
-        # the cmake-build-debug folder
-        run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+      - name: Executable name Environment Variable Check
+        run: |
+          echo $EXE_NAME
+          echo " "
+          echo ${{runner.workspace}}
+          echo " "
+          echo $GITHUB_WORKSPACE
+          echo " "
+          g++ --version
+          cmake --version
 
-      - name: Execute Tests
-        # This calls your program with no cmd line arguments which should trigger your CATCH tests to run.
-        working-directory: ${{github.workspace}}/build
-        run:  ${{github.workspace}}/build/${{env.TEST_EXE}}
+      - name: Create build environment
+        #run: cmake -E make_directory ${{runner.workspace}}/build
+        run:  mkdir ${{runner.workspace}}/build
 
-      - name: Execute Project
-        # This step calls your program with the command line args
-        working-directory: ${{github.workspace}}/build
-        run: ${{github.workspace}}/build/${{env.TEST_EXE}} ${{env.INPUT_FILE}} ${{env.OUTPUT_FILE}}
+      - name: Configure the build
+        # Use a bash shell so we can use the same syntax for environment variable
+        # access regardless of the host operating system
+        shell: bash
+        working-directory: ${{runner.workspace}}/build
+        run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE
+
+      - name: Build the project
+        working-directory: ${{runner.workspace}}/build
+        shell: bash
+        # Execute the build.  You can specify a specific target with "--target <NAME>"
+        run: cmake --build .
+
+      - name: Run the project
+        working-directory: ${{runner.workspace}}/build
+        shell: bash
+        run: ./$EXE_NAME $INPUT_FILES $OUTPUT_FILES
+        # run: ./$EXE_NAME
+
+      - name: Copy output files to artifact directory
+        working-directory: ${{runner.workspace}}/build
+        run: |
+          mkdir artifacts
+          for f in $OUTPUT_FILES
+          do
+            echo "  Copying $f"
+            cp $f artifacts/
+          done
 
       - name: Upload output files to GitHub so they can be reviewed
-        # This step zips up the data folder and uploads it to Github for you to review.
-        # Note that the sample input will be included as well.  Anything in the data folder will be
-        # zipped.
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v1
         with:
           name: project_output
-          path: ${{github.workspace}}/build/cmake-build-debug/data
+          path: ${{runner.workspace}}/build/artifacts
+
