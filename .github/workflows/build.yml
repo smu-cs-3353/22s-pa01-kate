@@ -13,7 +13,7 @@ env:
   # the name of any input files (use relative path)
   INPUT_FILE: data/100-paintings.txt
   # the name of any output files (use relative paths)
-  OUTPUT_FILE: data/100-paintings-custom.txt data/100-paintings-highvalue.txt
+  OUTPUT_FILE: cmake-build-debug/data/100-paintings-custom.txt cmake-build-debug/data/100-paintings-highvalue.txt
 
 
 jobs:
