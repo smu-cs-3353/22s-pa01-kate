@@ -23,7 +23,6 @@ int main(int argc, char** argv) {
        } else {
            std::cout << "Did not compute brute force solution. Input was too large. Brute force will only run on 10 paintings or less." << std::endl;
        }
-       
         PriciestFirst pricey;
         pricey.sort(artworks);
         std::vector<Paintings> priceSol = pricey.findBest(p.getWallWidth());
