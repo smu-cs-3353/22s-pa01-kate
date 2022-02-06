@@ -27,6 +27,7 @@ public:
     //output
     void output (char*, std::string, std::vector<Paintings>);
     int getWallWidth();
+    int getNum();
 };
 
 #endif //INC_22S_PA01_KATE_PARSING_H

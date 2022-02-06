@@ -53,3 +53,4 @@ void Parsing::output(char* argv, std::string identifier, std::vector<Paintings> 
 }
 
 int Parsing::getWallWidth() {return wallWidth;}
+int Parsing::getNum() {return num;}
