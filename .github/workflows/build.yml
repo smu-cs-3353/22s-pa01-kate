@@ -11,9 +11,9 @@ env:
   #   add_executable command.
   TEST_EXE: 22s-pa01-kate
   # the name of any input files (use relative path)
-  INPUT_FILE: data/4-paintings.txt
+  INPUT_FILE: data/100-paintings.txt
   # the name of any output files (use relative paths)
-  OUTPUT_FILE: data/output.txt
+  OUTPUT_FILE:
 
 
 jobs:
