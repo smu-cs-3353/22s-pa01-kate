@@ -89,17 +89,17 @@ Below is a table that compares the different algorithms to the total painting va
 
 Below are graphs (3 different perspectives of the same graph) that compares the different algorithms to their runtime on datasets ranging from 1 to 100,000.
 
-![Image](data/graph-1.png)
+![graph-1](https://user-images.githubusercontent.com/78283299/153636678-84f4cc83-b567-4713-821a-9ca33a7ca9ca.png)
 This graph shows the brute force algorithm increasing its time rapidly. The brute force has a time complexity of O(n!), as it generates every potential permutation of a dataset and generating combinations have a factorial runtime. 
 The brute force algorithm cannot run past a dataset of 11 paintings. It takes nearly two minutes to compute a dataset of 11, compared to 5 seconds for a dataset of 10, and any dataset larger than 11 will cause the program to fault out.
 
-![Image](data/graph-2.png)
+![graph-2](https://user-images.githubusercontent.com/78283299/153636736-59f755d8-d339-4e32-845f-a749a07dd61f.png)
 This is fullest, least zoomed rendition of the graph. You can see the thin brute force line on the very far left axis, while the other two algorithms progress at approximately the same rate.
 This is because my custom heuristic and the priciest first heuristic follow much of the same logic, and they are structured nearly identically.
 The priciest-first heuristic sorts paintings in descending order according to price into a vector using selection sort.
 The custom heuristic does the same thing, except instead of looking at price, it looks at a predetermined value that I calculated for each painting, which has to do more with their price relative to width than their cost overall.
 Since both the priciest-first heuristic and my custom heuristic utilize selection sort as their main method, they have a runtime of O(n<sup>2</sup>).
 
-![Image](data/graph-3.png)
+![graph-3](https://user-images.githubusercontent.com/78283299/153636810-16c74225-7103-4672-9a92-3b685c84f62b.png)
 This final graph merely allows for a closer comparison between the priciest first heuristic and the custom heuristic by lowering the range of the vertical axis.
 The two are very close, but my custom heuristic takes slightly longer on average. This is due to the extra calculation of dividing price<sup>2</sup> by width in order to calculate the value of the painting.
