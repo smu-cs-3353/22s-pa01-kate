@@ -61,7 +61,7 @@ Each output file should be formatted as follows:
 ![main branch](https://github.com/smu-cs-3353/22s-pa01-kate/actions/workflows/build.yml/badge.svg)
 
 ## Tests
-Tested with datasets in "data" folder named '4-paintings', '10-paintings', '20-paintings', '50-paintings', '100-paintings', and '2000-paintings'
+Tested with datasets in "data" folder named '4-paintings', '10-paintings', '20-paintings', '50-paintings', and '100-paintings'
 Brute force stops being optimal after 20 paintings 
 
 ## Usage Instructions
@@ -70,5 +70,36 @@ Brute force stops being optimal after 20 paintings
 * The program should produce 3 output files named based on directions in the Output section above.
 * The implementation should be object oriented.  
 
-For example, if your input was "paintings.txt" your command-line argument would look like
-`22s-pa01-kate /<PATH TO INPUT FILE>/paintings.txt` after running the cmake executable to configure the project.
+For example, if your input was "paintings.txt", your command-line argument would look like
+`./<PATH TO THIS DIRECTORY>/cmake-build-debug/22s-pa01-kate ./<PATH TO INPUT FILE>/paintings.txt` after running the cmake executable to configure the project.
+
+## Data Analysis
+Below is a table that compares the different algorithms to the total painting values (in dollars) they were able to produce with data sets of size 4, 10, 20, 50, and 100.
+
+
+|  Data Set Size| Brute Force Algorithm | Most Expensive First Algorithm | My Personal Heuristic |
+|---------------|-----------------------|--------------------------------|-----------------------|
+| 4 paintings   |         350           |             300                |          300          |
+| 10 paintings  |         2630          |             1850               |          2630         |
+| 20 paintings  |         n/a           |             1674               |          1674         |
+| 50 paintings  |         n/a           |             2436               |          3462         |
+| 100 paintings |         n/a           |             1357               |          5136         |
+
+
+
+Below are graphs (3 different perspectives of the same graph) that compares the different algorithms to their runtime on datasets ranging from 1 to 100,000.
+
+![Image](data/graph-1.png)
+This graph shows the brute force algorithm increasing its time rapidly. The brute force has a time complexity of O(n!), as it generates every potential permutation of a dataset and generating combinations have a factorial runtime. 
+The brute force algorithm cannot run past a dataset of 11 paintings. It takes nearly two minutes to compute a dataset of 11, compared to 5 seconds for a dataset of 10, and any dataset larger than 11 will cause the program to fault out.
+
+![Image](data/graph-2.png)
+This is fullest, least zoomed rendition of the graph. You can see the thin brute force line on the very far left axis, while the other two algorithms progress at approximately the same rate.
+This is because my custom heuristic and the priciest first heuristic follow much of the same logic, and they are structured nearly identically.
+The priciest-first heuristic sorts paintings in descending order according to price into a vector using selection sort.
+The custom heuristic does the same thing, except instead of looking at price, it looks at a predetermined value that I calculated for each painting, which has to do more with their price relative to width than their cost overall.
+Since both the priciest-first heuristic and my custom heuristic utilize selection sort as their main method, they have a runtime of O(n<sup>2</sup>).
+
+![Image](data/graph-3.png)
+This final graph merely allows for a closer comparison between the priciest first heuristic and the custom heuristic by lowering the range of the vertical axis.
+The two are very close, but my custom heuristic takes slightly longer on average. This is due to the extra calculation of dividing price<sup>2</sup> by width in order to calculate the value of the painting.

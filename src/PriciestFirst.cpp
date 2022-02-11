@@ -28,12 +28,17 @@ void PriciestFirst::sort(std::vector<Paintings>& unsorted) {
 }
 
 std::vector<Paintings> PriciestFirst::findBest(int width) {
+    // finding vectors that can fit on the wall using private variable vector "priciest" which is already sorted
     std::vector<Paintings> fitOnWall;
     int width_remaining = width;
+    // loop through vector which is sorted from most to least expensive
     for (int i = 0; i < priciest.size(); i++) {
+        // if there's space on the wall, add next painting
         if (priciest[i].getWidth() <= width_remaining) {
             fitOnWall.push_back(priciest[i]);
+            // subtract painting width from width left
             width_remaining -= priciest[i].getWidth();
+            // add price of painting to total price of wall
             price += priciest[i].getPrice();
         }
     }
